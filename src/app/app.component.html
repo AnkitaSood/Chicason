@@ -1,4 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar layout="column">
+  <span flex="33">My Application</span>
+
+  <button mat-button flex="end">
+    Menu
+  </button>
+
+  <button mat-icon-button flex="end" [matMenuTriggerFor]="appMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>Settings</button>
+  <button mat-menu-item>Help</button>
+</mat-menu>
+
+
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
