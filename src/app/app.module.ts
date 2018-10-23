@@ -12,17 +12,19 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {RouterModule} from '@angular/router';
 import {MatListModule} from '@angular/material';
 import {HomeComponent} from './home/home.component';
+import {SideNavModule} from './side-nav/side-nav.module';
+import {HomeModule} from './home/home.module';
 
 const appRoutes = [
   {path: 'home', component: HomeComponent},
-  {path: '**', component: HomeComponent},
+  {path: 'link', component: HomeComponent},
+  {path: '**', redirectTo: 'home'},
 
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +35,9 @@ const appRoutes = [
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule.forRoot(appRoutes)
-
+    RouterModule.forRoot(appRoutes),
+    SideNavModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
