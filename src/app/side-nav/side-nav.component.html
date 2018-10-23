@@ -1,11 +1,13 @@
-<mat-nav-list>
-  <a *ngFor="let menuItem of mainMenuItems"
-     mat-list-item
-     mat-ripple
-     [style.position]="'relative'"
-     routerLinkActive="selected"
-     [routerLink]="[menuItem.path]">
-    <mat-icon mat-list-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
-    <span>{{menuItem.title}}</span>
-  </a>
-</mat-nav-list>
+<mat-sidenav-container class="all-wrap">
+  <mat-nav-list>
+    <a *ngFor="let menuItem of mainMenuItems"
+       mat-list-item
+       mat-ripple
+       [style.position]="'relative'"
+       routerLinkActive="selected"
+       [routerLink]="[menuItem.path]">
+      <mat-icon mat-list-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+      <span>{{menuItem.title}}</span>
+    </a>
+  </mat-nav-list>
+</mat-sidenav-container>

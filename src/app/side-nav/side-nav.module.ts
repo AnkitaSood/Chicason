@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {SideNavComponent} from './side-nav.component';
 import {RouterModule} from '@angular/router';
-import {MatIconModule, MatListModule} from '@angular/material';
+import {MatMenuModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule} from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
 import {MenuDataService} from './menu-data.service';
 
@@ -12,8 +13,12 @@ import {MenuDataService} from './menu-data.service';
   imports: [
     BrowserModule,
     RouterModule,
+    MatToolbarModule,
+    MatMenuModule,
     MatIconModule,
-    MatListModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   exports: [
     SideNavComponent

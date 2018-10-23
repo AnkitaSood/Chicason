@@ -1,6 +1,4 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container class="all-wrap">
-
   <mat-sidenav class="side-nav" #mainSideNav mode="side">
     <mat-toolbar>
       <img width="30"  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
@@ -14,61 +12,22 @@
       </mat-toolbar>
     </mat-toolbar>
 
-    <mat-nav-list>
-      <a *ngFor="let menuItem of mainMenuItems"
-         mat-list-item
-         mat-ripple
-         [style.position]="'relative'"
-         routerLinkActive="selected"
-         [routerLink]="[menuItem.path]">
-        <mat-icon mat-list-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
-        <span>{{menuItem.title}}</span>
-      </a>
-    </mat-nav-list>
     <app-side-nav></app-side-nav>
 
   </mat-sidenav>
 
   <div class="page-wrap">
-
     <header role="banner">
       <mat-toolbar color="primary">
         <button mat-icon-button *ngIf="!mainSideNav.opened" (click)="mainSideNav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
-        {{(activeMenuItem$ | async)?.title}}
-        <span fxFlex></span>
-        <button mat-icon-button [matMenuTriggerFor]="dropdownMenu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
       </mat-toolbar>
     </header>
-
     <main class="content">
       <router-outlet></router-outlet>
     </main>
   </div>
-
-  <footer>
-    <mat-toolbar>
-      <button mat-icon-button (click)="mainSideNav.toggle()">
-        <mat-icon *ngIf="mainSideNav.opened">chevron_left</mat-icon>
-        <mat-icon *ngIf="!mainSideNav.opened">menu</mat-icon>
-      </button>
-    </mat-toolbar>
-  </footer>
-</mat-sidenav-container>
-
-<mat-menu #dropdownMenu x-position="before">
-  <a mat-menu-item href="" (click)="onLogout($event)">
-    <mat-icon>exit_to_app</mat-icon>
-    <span>Logout</span>
-  </a>
-  <a mat-menu-item href="" routerLink="/about">
-    <mat-icon>info_outline</mat-icon>
-    <span>About</span>
-  </a>
-</mat-menu>
 
 
 

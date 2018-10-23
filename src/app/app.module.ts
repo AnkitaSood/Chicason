@@ -19,7 +19,6 @@ const appRoutes = [
   {path: 'home', component: HomeComponent},
   {path: 'link', component: HomeComponent},
   {path: '**', redirectTo: 'home'},
-
 ];
 
 @NgModule({
