@@ -1,0 +1,25 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+/*
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main > *:not(router-outlet) {
+flex: 1;
+display: block;
+}
+*/

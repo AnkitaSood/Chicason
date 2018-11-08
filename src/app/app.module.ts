@@ -6,25 +6,38 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {SideNavModule} from './side-nav/side-nav.module';
 import {HomeModule} from './home/home.module';
+import {MenuComponent} from './menu/menu.component';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatMenuModule,
+  MatToolbarModule,
+} from '@angular/material';
+import {FooterComponent} from './footer/footer.component';
 
 const appRoutes = [
   {path: 'home', component: HomeComponent},
-  {path: 'link', component: HomeComponent},
+  {path: 'profile', component: HomeComponent},
   {path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    SideNavModule,
-    HomeModule
+    HomeModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

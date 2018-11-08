@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <a mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </a>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <a mat-menu-item [routerLink]="'home'">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a mat-menu-item [routerLink]="'profile'">
+        <mat-icon>people_outline</mat-icon>
+        <span>Profile</span>
+      </a>
+      <!--<a mat-menu-item>
+        <mat-icon>videocam</mat-icon>
+        <span>Let's talk</span>
+      </a>
+      <a mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </a>-->
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Chicason</span>
+</mat-toolbar>
