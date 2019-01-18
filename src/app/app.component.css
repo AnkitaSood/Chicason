@@ -1,8 +1,9 @@
-/*
- * Actual Sticky Footer Styles
- */
-.all-wrap {
-  min-height: 100vh;
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 .page-wrap {
@@ -12,27 +13,12 @@
 }
 
 .content {
-  flex: 1
-}
-
-/*
- * Make the Component injected by Router Outlet full height:
- */
-main {
-  display: flex;
-  flex-direction: column;
-}
-
-main > *:not(router-outlet) {
-  flex: 1;
-  display: block;
-  flex-direction: column;
+  flex: 2;
 }
 
 /*
 side nav
 */
-
 .side-nav {
   min-width: 200px;
 }
