@@ -15,10 +15,11 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 import {FooterComponent} from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes = [
   {path: 'home', component: HomeComponent},
-  {path: 'profile', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '**', redirectTo: 'home'},
 ];
 
@@ -26,7 +27,8 @@ const appRoutes = [
   declarations: [
     AppComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
