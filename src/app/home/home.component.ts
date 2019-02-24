@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 
 @Component({
@@ -6,8 +6,7 @@ import {DataService} from '../data.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements  OnInit, AfterViewInit {
-  @ViewChild('tabGroup') tabGroup;
+export class HomeComponent implements  OnInit {
 
   title = 'Chicason';
   breeds: any[];
@@ -16,7 +15,6 @@ export class HomeComponent implements  OnInit, AfterViewInit {
   subBreeds: any[];
   breedImgURL = '';
   subBreedImgURL = '';
-  tabLoadTimes: Date[] = [];
 
   constructor (private data: DataService) {}
 
@@ -61,17 +59,9 @@ export class HomeComponent implements  OnInit, AfterViewInit {
 
   }
 
-
-  /*onSubBreedSelect() {
-    this.data.getSubBreedImage(this.selectedBreed, this.tabGroup.tab).subscribe( response => {
-      this.subBreedImgURL = response.message;
-      console.log(this.subBreedImgURL);
-    });
-
-  }*/
-
-  ngAfterViewInit(): void {
-    // console.log(this.tabGroup.tab);
+  selectedTab(subBreedTab) {
+    this.selectedSubBreed = subBreedTab.tab.textLabel;
+    this.getRandomSubBreedImage();
   }
 
   getRandomSubBreedImage() {
