@@ -1,9 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
+
+
+<mat-form-field>
+  <mat-select placeholder="Select a Breed" [(value)]="selectedBreed" (selectionChange)="getBreedImage($event)">
+    <mat-option *ngFor="let breed of breeds" [value]="breed">
+      {{breed}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-card class="breed-card" *ngIf="selectedBreed">
+  <mat-card-header>
+    <mat-card-title>{{selectedBreed}}</mat-card-title>
+  </mat-card-header>
+
+    <mat-tab-group *ngIf="selectedSubBreed; else breedImg">
+      <mat-tab *ngFor="let subBreed of subBreeds" label="{{subBreed}}">
+        <ng-template matTabContent>
+          <img class="sub-breed-image" mat-card-image src="{{subBreedImgURL}}" alt="{{subBreed}}">
+        </ng-template>
+
+      </mat-tab>
+    </mat-tab-group>
+  <ng-template #breedImg>
+    <img mat-card-image  src={{breedImgURL}} alt="{{selectedBreed}}">
+  </ng-template>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+
+</mat-card>
+
 </div>
+<!--<mat-tab-group *ngIf="selectedBreed && subBreeds">
+  <mat-tab *ngFor="let subBreed of subBreeds" label="{{subBreed}}">
+    <ng-template matTabContent>
+      {{subBreed}}
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>-->
+
+
+
+
 
 
 
