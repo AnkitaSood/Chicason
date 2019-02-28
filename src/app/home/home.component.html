@@ -5,8 +5,8 @@
 
 
 <mat-form-field>
-  <mat-select placeholder="Select a Breed" [(value)]="selectedBreed" (selectionChange)="getBreedImage($event)">
-    <mat-option *ngFor="let breed of breeds" [value]="breed">
+  <mat-select placeholder="Select a Breed" [(value)]="selectedBreed" (selectionChange)="getBreedImage()">
+    <mat-option *ngFor="let breed of breeds" [value]="breed" class="breed-select-text">
       {{breed}}
     </mat-option>
   </mat-select>

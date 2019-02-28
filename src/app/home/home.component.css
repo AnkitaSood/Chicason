@@ -6,3 +6,7 @@
 .sub-breed-image {
   width: 100%;
 }
+
+.breed-select-text, .mat-select {
+  text-transform: capitalize;
+}
