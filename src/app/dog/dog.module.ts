@@ -1,19 +1,20 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home.component';
+import { DogComponent } from './dog.component';
 import {CommonModule} from '@angular/common';
 import {MatFormFieldModule, MatSelectModule, MatCardModule, MatTabsModule, MatButtonModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    DogComponent
   ],
   imports: [
     ReactiveFormsModule,
     CommonModule,
     MatFormFieldModule, MatSelectModule, MatCardModule, MatTabsModule, MatButtonModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: []
 })
-export class HomeModule { }
+export class DogModule { }

@@ -2,13 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-dog',
+  templateUrl: './dog.component.html',
+  styleUrls: ['./dog.component.css']
 })
-export class HomeComponent implements  OnInit {
+export class DogComponent implements  OnInit {
 
-  title = 'Chicason';
+  title = 'Dog';
   breeds: any[];
   selectedBreed = '';
   selectedSubBreed = '';
@@ -47,6 +47,7 @@ export class HomeComponent implements  OnInit {
 
   /* Get main breed image, and get sub-breed list */
   getBreedImage() {
+    this.selectedSubBreed = '';
     this.data.getBreedImage(this.selectedBreed).subscribe (response => {
       // @ts-ignore
       this.breedImgURL = response.message;

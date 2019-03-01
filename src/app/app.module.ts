@@ -1,13 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {RouterModule} from '@angular/router';
-import {HomeComponent} from './home/home.component';
-import {HomeModule} from './home/home.module';
 import {MenuComponent} from './menu/menu.component';
+import {DogComponent} from './dog/dog.component';
+import {DogModule} from './dog/dog.module';
+import {CatComponent} from './cat/cat.component';
+import {CatModule} from './cat/cat.module';
+import {FooterComponent} from './footer/footer.component';
+
 
 import {
   MatButtonModule, MatFormFieldModule,
@@ -15,27 +19,25 @@ import {
   MatMenuModule,
   MatToolbarModule
 } from '@angular/material';
-import {FooterComponent} from './footer/footer.component';
-import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: '**', redirectTo: 'home'},
+  {path: 'dog', component: DogComponent},
+  {path: 'cat', component: CatComponent},
+  {path: '**', redirectTo: 'dog'},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    FooterComponent,
-    ProfileComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    HomeModule,
+    DogModule,
+    CatModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,

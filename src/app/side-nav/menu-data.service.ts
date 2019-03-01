@@ -8,9 +8,8 @@ export class MenuDataService {
 
     const mainMenuItems: any[] = [];
 
-    mainMenuItems.push({title: 'Home', path: 'home', icon: 'home'});
-    mainMenuItems.push({title: 'Link 2', path: 'link'});
-    mainMenuItems.push({title: 'Link 3'});
+    mainMenuItems.push({title: 'Dog', path: 'dog', icon: 'dog'});
+    mainMenuItems.push({title: 'Cat', path: 'cat'});
 
     return of(mainMenuItems);
 

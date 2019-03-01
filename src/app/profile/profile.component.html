@@ -1,6 +1,0 @@
-<h1 [ngClass]="{
-  'blue' : premiumUser,
-  'red': !premiumUser
-}" >Hello, {{userType}} User!</h1>
-
-<button (click)="upgradeProfile()" [disabled]="premiumUser" >Upgrade to Premium</button>
