@@ -9,67 +9,34 @@ import {DataService} from '../data.service';
 export class DogComponent implements  OnInit {
 
   title = 'Dog';
-  breeds: any[];
-  selectedBreed = '';
-  selectedSubBreed = '';
-  subBreeds: any[];
+  breeds: {};
+  selectedBreed: {};
+  selectedBreedId: any;
   breedImgURL = '';
-  subBreedImgURL = '';
 
   constructor (private data: DataService) {}
 
   ngOnInit(): void {
-    this.getAllBreeds();
+    this.fetchDogs();
   }
 
   // List of breeds displayed in select
-  getAllBreeds() {
-    this.data.getAllBreeds().subscribe(response => {
-        // @ts-ignore
-      this.breeds = Object.keys(response.message);
+  fetchDogs() {
+    this.data.fetchDogs().subscribe(response => {
+      this.breeds = response;
       }, error => {
         console.log('error');
       });
   }
 
-  // Display sub breed as tabs if they exist
-  getSubBreed() {
-    this.data.getSubBreed(this.selectedBreed).subscribe(response => {
-      // @ts-ignore
-      this.subBreeds = response.message;
-      // If there are sub-breeds, display their names and a random image for each
-      if (this.subBreeds.length !== 0) {
-        this.selectedSubBreed = this.subBreeds[0];
-        this.getRandomSubBreedImage();
-      }
+  /* Fetch selected breed image*/
+  fetchDogBreedImage() {
+    this.data.fetchDogBreedImage(this.selectedBreedId).subscribe (response => {
+      this.breedImgURL = response[0].url;
+      this.selectedBreed = response[0].breeds[0];
     });
-  }
-
-  /* Get main breed image, and get sub-breed list */
-  getBreedImage() {
-    this.selectedSubBreed = '';
-    this.data.getBreedImage(this.selectedBreed).subscribe (response => {
-      // @ts-ignore
-      this.breedImgURL = response.message;
-    }, error => {
-      console.log('error');
-    },
-      () => {
-      this.getSubBreed();
-      });
 
   }
 
-  selectedTab(subBreedTab) {
-    this.selectedSubBreed = subBreedTab.tab.textLabel;
-    this.getRandomSubBreedImage();
-  }
-
-  getRandomSubBreedImage() {
-    this.data.getRandomSubBreedImage(this.selectedBreed, this.selectedSubBreed).subscribe(response => {
-      // @ts-ignore
-      this.subBreedImgURL = response.message;
-    });
-  }
 }
 

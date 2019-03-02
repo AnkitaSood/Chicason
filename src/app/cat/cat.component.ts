@@ -8,8 +8,8 @@ import {DataService} from '../data.service';
 })
 export class CatComponent implements OnInit {
   title = 'Cat';
-  breeds: any;
-  selectedBreed: any;
+  breeds: {};
+  selectedBreed: {};
   selectedBreedId: any;
   breedImgURL = '';
   constructor(private data: DataService) { }

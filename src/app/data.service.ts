@@ -7,20 +7,12 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getAllBreeds() {
-    return this.http.get('https://dog.ceo/api/breeds/list/all');
+  fetchDogs() {
+    return this.http.get('https://api.TheDogAPI.com/v1/breeds', {headers: {'x-api-key': 'c9f15cec-8894-45af-9dfd-bc2eeb6cbdaf'}});
   }
 
-  getBreedImage(breed) {
-    return this.http.get('https://dog.ceo/api/breed/' + breed + '/images/random');
-  }
-
-  getSubBreed(breed) {
-    return this.http.get('https://dog.ceo/api/breed/' + breed + '/list');
-  }
-
-  getRandomSubBreedImage(breed, subBreed) {
-    return this.http.get('https://dog.ceo/api/breed/' + breed + '/' + subBreed + '/images/random');
+  fetchDogBreedImage(breedId) {
+    return this.http.get('https://api.TheDogAPI.com/v1/images/search?breed_ids=' + breedId + '&limit=1', {headers: {'x-api-key': 'c9f15cec-8894-45af-9dfd-bc2eeb6cbdaf'}});
   }
 
   fetchCats() {
