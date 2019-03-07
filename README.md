@@ -6,6 +6,6 @@ It is a WIP personal project. Stay tuned for more updates.
 
 ---
 
-####Attributions: 
+#### Attributions: 
 - [Dog Images and Info](https://docs.thedogapi.com/example-by-breed)
 - [Cat Images and Info](https://docs.thecatapi.com/example-by-breed)
