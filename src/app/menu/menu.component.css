@@ -1,3 +1,8 @@
+.mat-toolbar.mat-primary {
+  background: #7dce94;
+  color: #f6f5f3;
+}
+
 .menu-header {
   flex:1;
   text-align: center;

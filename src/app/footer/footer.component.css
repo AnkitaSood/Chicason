@@ -1,5 +1,6 @@
 footer {
-  background: #efefef;
+  background: #7dce94;
+  color: #f6f5f3;
 }
 
 a {
@@ -7,7 +8,6 @@ a {
   font-weight: 100;
   letter-spacing: 2px;
   text-decoration: none;
-  background:rgba(0,0,0,0.2);
   padding:20px 0;
   display: inline-block;
   width: 100%;
@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-  background:rgba(0,0,0,0.3);
+  background: rgba(66, 151, 95, 0.3);
 }
 
 .wrapper {
@@ -28,7 +28,6 @@ a:hover {
 
 /* Flex Container */
 .flex-nav ul {
-  border:1px solid black;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -55,7 +54,6 @@ a:hover {
   .flex-nav .social {
     flex: 1 1 25%;
   }
-
 
 }
 
