@@ -6,7 +6,7 @@
 
 
 <mat-form-field>
-  <mat-select placeholder="Select a Breed" [(value)]="selectedBreedId" (selectionChange)="fetchDogBreedImage()">
+  <mat-select placeholder="Select a Breed" [(value)]="selectedBreedId" (selectionChange)="fetchAnimalBreedImage()">
     <mat-option *ngFor="let breed of breeds" [value]="breed.id" class="breed-select-text">
       {{breed.name}}
     </mat-option>
@@ -18,7 +18,7 @@
     <mat-card-title>{{selectedBreed.name}}</mat-card-title>
     <mat-card-subtitle>Life-span: {{selectedBreed.life_span}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src={{breedImgURL}} alt="Photo of a {{selectedBreed.name}}">
+  <img mat-card-image [src]='breedImgURL' alt="Photo of a {{selectedBreed.name}}">
   <mat-card-content>
     <p>
       Temperament: {{selectedBreed.temperament}}

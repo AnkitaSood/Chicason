@@ -4,11 +4,11 @@
       <mat-icon>menu</mat-icon>
     </a>
     <mat-menu #menu="matMenu" [overlapTrigger]="false">
-      <a mat-menu-item [routerLink]="'dog'">
+      <a mat-menu-item [routerLink]="['/animal','dog']">
         <mat-icon>pets</mat-icon>
         <span>Dog</span>
       </a>
-      <a mat-menu-item [routerLink]="'cat'">
+      <a mat-menu-item [routerLink]="['/animal','cat']">
         <mat-icon>people_outline</mat-icon>
         <span>Cat</span>
       </a>

@@ -6,12 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {RouterModule} from '@angular/router';
 import {MenuComponent} from './menu/menu.component';
-import {DogComponent} from './dog/dog.component';
-import {DogModule} from './dog/dog.module';
-import {CatComponent} from './cat/cat.component';
-import {CatModule} from './cat/cat.module';
+import {AnimalModule} from './animal/animal.module';
 import {FooterComponent} from './footer/footer.component';
 
+import {StoreModule} from '@ngrx/store';
 
 import {
   MatButtonModule, MatFormFieldModule,
@@ -19,11 +17,12 @@ import {
   MatMenuModule,
   MatToolbarModule
 } from '@angular/material';
+import { reducers, metaReducers } from './reducers';
+import {AnimalComponent} from './animal/animal.component';
 
 const appRoutes = [
-  {path: 'dog', component: DogComponent},
-  {path: 'cat', component: CatComponent},
-  {path: '**', redirectTo: 'dog'},
+  {path: 'animal/:animal', component: AnimalComponent},
+  {path: '**', redirectTo: 'animal/dog'},
 ];
 
 @NgModule({
@@ -36,15 +35,15 @@ const appRoutes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    DogModule,
-    CatModule,
+    AnimalModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
     RouterModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

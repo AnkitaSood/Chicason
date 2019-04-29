@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.mat-card-title, .mat-card-subtitle {
+  text-align: left;
+}
+
 .breed-select-text, .mat-select {
   text-transform: capitalize;
 }
