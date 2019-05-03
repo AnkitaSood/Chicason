@@ -1,4 +1,26 @@
-export function reducer(state, action) {
+import {AnimalSelections} from '../animal.component';
+
+export interface AnimalState {
+  animal: String;
+  dog: AnimalSelections;
+  cat: AnimalSelections;
+}
+
+const initialState: AnimalState = {
+  animal: 'dog',
+  dog: {
+    selectedBreed: null,
+    selectedBreedId: '',
+    breedImgURL: ''
+  },
+  cat: {
+    selectedBreed: null,
+    selectedBreedId: '',
+    breedImgURL: ''
+  }
+};
+
+export function reducer(state = initialState, action): AnimalState {
   
   switch (action.type) {
 

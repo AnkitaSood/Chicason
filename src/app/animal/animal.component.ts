@@ -3,22 +3,37 @@ import {DataService} from '../data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 
+export interface Breed {
+  id: String;
+  name: String;
+  temperament: String;
+  life_span: String;
+  alt_names: String;
+  wikipedia_url: String;
+}
+
+export interface AnimalSelections {
+  selectedBreed: Breed;
+  selectedBreedId: '';
+  breedImgURL: '';
+}
 
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
   styleUrls: ['./animal.component.css']
 })
+
 export class AnimalComponent implements OnInit {
   animal: String;
   title: String;
   breeds: Breed[];
-  dog = {
+  dog: AnimalSelections = {
     selectedBreed: null,
     selectedBreedId: '',
     breedImgURL: ''
   };
-  cat = {
+  cat: AnimalSelections = {
     selectedBreed: null,
     selectedBreedId: '',
     breedImgURL: ''
@@ -66,14 +81,9 @@ export class AnimalComponent implements OnInit {
 
     this.store.pipe(select('animals')).subscribe(
       animals => {
-
-        if (animals && animals[this.animal.toLowerCase()]) {
-          // if (this.animal.toLowerCase() === 'cat') {
             this.selectedBreed =  animals[this.animal.toLowerCase()].selectedBreed;
             this.selectedBreedId =  animals[this.animal.toLowerCase()].selectedBreedId;
             this.breedImgURL = animals[this.animal.toLowerCase()].breedImgURL;
-          // }
-        }
       }
     ).unsubscribe();
 
@@ -133,15 +143,5 @@ export class AnimalComponent implements OnInit {
     });
 
   }
-
-}
-
-export interface Breed {
-  id: String;
-  name: String;
-  temperament: String;
-  life_span: String;
-  alt_names: String;
-  wikipedia_url: String;
 
 }
