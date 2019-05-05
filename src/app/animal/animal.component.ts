@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {select, Store} from '@ngrx/store';
+import * as fromAnimal from './state/animals.reducer';
+import * as animalActions from './state/animals.actions';
 
 export interface Breed {
   id: String;
@@ -73,17 +75,14 @@ export class AnimalComponent implements OnInit {
 
   ngOnInit(): void {
     this.animal = this.route.snapshot.paramMap.get('animal');
-    this.store.dispatch({
-      type: 'CURRENT_ANIMAL',
-      payload: this.animal
-    });
+    this.store.dispatch(new animalActions.SelectCurrentAnimal(this.animal));
     this.fetchBreeds();
 
     this.store.pipe(select('animals')).subscribe(
-      animals => {
-            this.selectedBreed =  animals[this.animal.toLowerCase()].selectedBreed;
-            this.selectedBreedId =  animals[this.animal.toLowerCase()].selectedBreedId;
-            this.breedImgURL = animals[this.animal.toLowerCase()].breedImgURL;
+      animal => {
+            this.selectedBreed =  animal[this.animal.toLowerCase()].selectedBreed;
+            this.selectedBreedId =  animal[this.animal.toLowerCase()].selectedBreedId;
+            this.breedImgURL = animal[this.animal.toLowerCase()].breedImgURL;
       }
     ).unsubscribe();
 
@@ -129,15 +128,9 @@ export class AnimalComponent implements OnInit {
       this.breedImgURL = response[0].url;
       this.selectedBreed = response[0].breeds[0];
       if (this.animal === 'cat') {
-        this.store.dispatch({
-          type: 'SELECTED_CAT',
-          payload: this.getBaseObj
-        });
+        this.store.dispatch(new animalActions.SelectCat(this.getBaseObj));
       } else {
-        this.store.dispatch({
-          type: 'SELECTED_DOG',
-          payload: this.getBaseObj
-        });
+        this.store.dispatch(new animalActions.SelectDog(this.getBaseObj));
       }
 
     });

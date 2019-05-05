@@ -1,6 +1,8 @@
 import {AnimalSelections} from '../animal.component';
+import * as fromRoot from '../../state/app.state';
+import {AnimalsActions, AnimalsActionTypes} from './animals.actions';
 
-export interface AnimalState {
+export interface AnimalState extends fromRoot.AppState {
   animal: String;
   dog: AnimalSelections;
   cat: AnimalSelections;
@@ -20,21 +22,28 @@ const initialState: AnimalState = {
   }
 };
 
-export function reducer(state = initialState, action): AnimalState {
+/*const getAnimalState = createFeatureSelector<AnimalState>('animals');
+
+export const getAnimal = createSelector(
+  getAnimalState,
+  state => state.animal
+);*/
+
+export function reducer(state = initialState, action: AnimalsActions): AnimalState {
   
   switch (action.type) {
 
-    case 'SELECTED_CAT':
+    case AnimalsActionTypes.SelectCat:
       return {
         ...state,
         cat : action.payload
       };
-    case 'SELECTED_DOG':
+    case AnimalsActionTypes.SelectDog:
     return {
       ...state,
       dog : action.payload
     };
-    case 'CURRENT_ANIMAL':
+    case AnimalsActionTypes.SelectCurrentAnimal:
       return {
         ...state,
         animal: action.payload

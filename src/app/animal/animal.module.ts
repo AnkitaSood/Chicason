@@ -4,7 +4,7 @@ import { AnimalComponent } from './animal.component';
 import {CommonModule} from '@angular/common';
 import {MatFormFieldModule, MatSelectModule, MatCardModule, MatTabsModule, MatButtonModule } from '@angular/material';
 import {StoreModule} from '@ngrx/store';
-import {reducer} from './store/animals.reducer';
+import {reducer} from './state/animals.reducer';
 
 @NgModule({
   declarations: [
